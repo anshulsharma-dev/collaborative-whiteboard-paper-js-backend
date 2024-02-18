@@ -1,5 +1,5 @@
-const { Sequelize } = require('sequelize');
-require('dotenv').config();
+const { Sequelize } = require("sequelize");
+require("dotenv").config();
 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE,
@@ -8,25 +8,8 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT || 3306,
-    dialect: 'mysql',
+    dialect: "mysql",
   }
 );
 
 module.exports = sequelize;
-
-// // collaborative-whiteboard-backend\db.js
-// const { Sequelize } = require('sequelize');
-// require('dotenv').config();
-
-// const sequelize = new Sequelize(
-//   process.env.DB_DATABASE,
-//   process.env.DB_USERNAME,
-//   process.env.DB_PASSWORD,
-//   {
-//     host: process.env.DB_HOST,
-//     port: process.env.DB_PORT,
-//     dialect: process.env.DB_DIALECT,
-//   }
-// );
-
-// module.exports = sequelize;

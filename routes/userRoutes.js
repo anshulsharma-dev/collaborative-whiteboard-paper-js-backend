@@ -1,4 +1,3 @@
-// routes/userRoutes.js
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
@@ -19,9 +18,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// Add more routes as needed
-// Login route
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -35,12 +32,6 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: "Incorrect password" });
     }
 
-    // Upon successful login, generate a token or set a session
-    // For example, using jsonwebtoken to generate a token
-    // const token = jwt.sign({ id: user.id }, "your_secret_key", { expiresIn: "2h" });
-    // res.json({ message: "Login successful", token });
-
-    // Or simply return success message if not using tokens or sessions
     res.json({ message: "Login successful" });
   } catch (error) {
     console.error(error);
@@ -48,7 +39,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Save drawing data
 router.post("/drawing", async (req, res) => {
   const { data } = req.body;
   try {
@@ -59,7 +49,6 @@ router.post("/drawing", async (req, res) => {
   }
 });
 
-// Get latest drawing data
 router.get("/drawing", async (req, res) => {
   try {
     const latestDrawing = await Drawing.findOne({
